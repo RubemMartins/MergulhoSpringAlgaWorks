@@ -1,0 +1,23 @@
+package com.rubem.algalog.api.controller;
+
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rubem.algalog.domain.model.Cliente;
+import com.rubem.algalog.domain.repository.ClienteRepository;
+
+@RestController
+public class ClienteController {
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+
+	@GetMapping("/cliente")
+	public List<Cliente> listar(){
+		return clienteRepository.findAll();
+	}
+} 

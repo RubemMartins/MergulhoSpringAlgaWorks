@@ -1,0 +1,5 @@
+package com.rubem.algalog.domain.model;
+
+public class Cliente {
+
+}

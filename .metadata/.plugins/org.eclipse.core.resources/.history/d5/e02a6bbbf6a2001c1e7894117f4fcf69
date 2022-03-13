@@ -1,0 +1,32 @@
+package com.rubem.algalog.api.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rubem.algalog.domain.model.Cliente;
+import com.rubem.algalog.domain.repository.ClienteRepository;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@RestController
+public class ClienteController {
+	
+	
+	private ClienteRepository clienteRepository;
+
+	@GetMapping("/cliente")
+	public List<Cliente> listar(){
+		return clienteRepository.findAll();
+	}
+	
+	@GetMapping("/cliente/{clienteId}")
+	public Cliente buscar(@PathVariable Long clienteId) {
+		Optional<Cliente> cliente = clienteRepository.findById(clienteId);
+		return cliente.orElse(null);
+	}
+} 
