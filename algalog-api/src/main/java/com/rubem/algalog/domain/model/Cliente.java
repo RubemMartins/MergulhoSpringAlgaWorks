@@ -8,7 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+
+import com.rubem.algalog.domain.ValidationGroups;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,11 +25,11 @@ import lombok.Setter;
 @Table(name="cliente")
 public class Cliente {
 
+	@NotNull(groups = ValidationGroups.ClienteId.class)
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private Long clienteId;
+	private Long id;
 	
 	@NotBlank
 	@Size(max= 60)
@@ -38,6 +42,6 @@ public class Cliente {
 	
 	@NotBlank
 	@Size(max= 20)
-	@Column(name="telefone")
+	@Column(name="fone")
 	private String telefone;
 }

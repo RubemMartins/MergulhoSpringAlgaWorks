@@ -1,7 +1,7 @@
 package com.rubem.algalog.api.controller;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import javax.validation.Valid;
 
@@ -64,7 +64,7 @@ public class ClienteController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		cliente.setClienteId(clienteId);
+		cliente.setId(clienteId);
 		//cliente = clienteRepository.save(cliente);
 		catalogoClienteService.salvar(cliente);
 		
