@@ -1,0 +1,16 @@
+package com.rubem.algalog.api.model;
+
+import java.time.OffsetDateTime;
+
+import com.rubem.algalog.domain.model.StatusEntrega;
+
+public class EntregaModel {
+
+	private Long id;
+	private String nomeCliente;
+	private DestinatarioModel destinatario;
+	private BigDecimal taxa;
+	private StatusEntrega status;
+	private OffsetDateTime dataPedido;
+	private OffsetDateTime dataFinalizado;
+}
